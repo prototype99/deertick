@@ -8,8 +8,8 @@ models = []
 providers = []
 
 for _, row in df.iterrows():
-    if row['top_provider_max_completion_tokens'] > 0:
-        max_completion_tokens = row['top_provider_max_completion_tokens']
+    if row['top_provider.max_completion_tokens'] > 0:
+        max_completion_tokens = row['top_provider.max_completion_tokens']
     else:
         max_completion_tokens = 0
     #store model

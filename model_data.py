@@ -14,7 +14,7 @@ for _, row in df.iterrows():
         max_completion_tokens = 0
     #store model
     models.append([
-        row['id'],    row['name'],    row['created'],    row['description'].replace("\n", ""),    row['context_length'],    row['per_request_limits'],    row['architecture.modality'],
+        row['id'],    row['name'],    row['created'],    row['description'].replace("\n", "").replace('"', "'"),    row['context_length'],    row['per_request_limits'],    row['architecture.modality'],
         row['architecture.tokenizer'],    row['architecture.instruct_type'],    row['pricing.prompt'],    row['pricing.completion'],    row['pricing.image'],
         row['pricing.request'],    row['top_provider.context_length'],    max_completion_tokens,
         row['top_provider.is_moderated'],    row['preferred_provider'],    row['model_type'],

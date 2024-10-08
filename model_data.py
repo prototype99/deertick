@@ -14,7 +14,7 @@ for _, row in df.iterrows():
         max_completion_tokens = 0
     #store model
     models.append([
-        row['id'],    row['name'],    row['created'],    row['description'],    row['context_length'],    row['per_request_limits'],    row['architecture.modality'],
+        row['id'],    row['name'],    row['created'],    row['description'].replace("\n", ""),    row['context_length'],    row['per_request_limits'],    row['architecture.modality'],
         row['architecture.tokenizer'],    row['architecture.instruct_type'],    row['pricing.prompt'],    row['pricing.completion'],    row['pricing.image'],
         row['pricing.request'],    row['top_provider.context_length'],    max_completion_tokens,
         row['top_provider.is_moderated'],    row['preferred_provider'],    row['model_type'],
@@ -29,7 +29,7 @@ def list_all():
     """
     print("\nmodels:\n")
     for model in models:
-        print(f'"{model[0]}", "{model[1]}", {model[2]}, "{model[3]}", {model[4]}, "", "{model[6]}", "{model[7]}", "{model[8]}", {model[9]}, {model[10]}, {model[11]}, {model[12]}, {model[13]}, {model[14]}, {model[15]}, "{model[16]}", "{model[17]}", [],')
+        print(f'["{model[0]}", "{model[1]}", {model[2]}, "{model[3]}", {model[4]}, "", "{model[6]}", "{model[7]}", "{model[8]}", {model[9]}, {model[10]}, {model[11]}, {model[12]}, {model[13]}, {model[14]}, {model[15]}, "{model[16]}", "{model[17]}", []],')
 
 
 

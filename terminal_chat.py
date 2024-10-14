@@ -2,7 +2,7 @@ import random
 from agent import Agent
 import pandas as pd
 from colorama import init, Fore, Back, Style
-from model_data import file_read, list_models, voice_samples, models, ModelHead
+from model_data import file_read, list_models, voice_samples, models, ModelHead, validate_provider, model_by_name
 
 # Initialize colorama
 init(autoreset=True)
@@ -41,11 +41,7 @@ class TerminalChat:
                 if model_nick == 'l':
                     list_models()
                     model_nick = input('Model: ')
-                provider = ''
-                for model in models:
-                    if model[ModelHead.name.value] == model_nick:
-                        provider = model[ModelHead.preferred_provider.value]
-                        break
+                provider = validate_provider('', model_nick)
                 self.agents.append(Agent(model_nick, self.system_prompt, provider))
                 self.connect_msg(self.agents[-1].model)
             elif prompt.lower() == '%remove_agent':
@@ -129,9 +125,11 @@ class TerminalChat:
         self.history = str()
 
     def connect_msg(self, connected_model):
-        print(f"{Fore.GREEN}*{connected_model} connected to the chat*{Style.RESET_ALL}\n-----------------------")
+        print(f"{Fore.GREEN}*{connected_model} connected to the chat*")
         if "free" in connected_model:
-            print(f"{Fore.GREEN}_Outputs may be cached. Read about rate limits in ./docs/limits._{Style.RESET_ALL}\n-----------------------")
+            print(f"{Fore.GREEN}_Outputs may be cached. Read about rate limits in ./docs/limits._")
+            connected_model = model_by_name(connected_model)
+            print(f"{Fore.GREEN}_These are free, rate-limited endpoints for {connected_model[ModelHead.name.value]} (/models/{connected_model[ModelHead.id.value]})._{Style.RESET_ALL}\n-----------------------")
 
     def help(self):
         print(f"{Fore.MAGENTA}Available commands:{Style.RESET_ALL}")

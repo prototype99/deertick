@@ -231,27 +231,27 @@ def model_by_name(model_name):
 #8192.0, 4096.0
 #4096.0, 2048.0
 #0, 0
-models_free_high = {
-    ["Liquid: LFM 40B MoE", 2],
-    ["Meta: Llama 3.2 3B Instruct", 2],
-    ["OpenChat 3.5 7B", 2],
-    ["MythoMist 7B", 2],
-    ["Meta: Llama 3 8B Instruct", 2],
-    ["Phi-3 Medium 128K Instruct", 2],
-    ["Phi-3 Mini 128K Instruct", 2],
-    ["Mistral: Mistral 7B Instruct", 2],
-    ["Meta: Llama 3.2 1B Instruct", 2],
-    ["Meta: Llama 3.2 11B Vision Instruct", 2],
-    ["Nous: Hermes 3 405B Instruct", 2],
-    ["Meta: Llama 3.1 70B Instruct", 2],
-    ["Meta: Llama 3.1 8B Instruct", 2],
-    ["Meta: Llama 3.1 405B Instruct", 2],
-    ["Qwen 2 7B Instruct", 2],
-    ["Toppy M 7B", 1],
-    ["Google: Gemma 2 9B", 1],
-    ["Reflection 70B", 0],
-    ["Mistral: Pixtral 12B", 0],
-    ["Qwen2-VL 7B Instruct", 0],
+models_free = {
+    "Liquid: LFM 40B MoE": 2,
+    "Meta: Llama 3.2 3B Instruct": 2,
+    "OpenChat 3.5 7B": 2,
+    "MythoMist 7B": 2,
+    "Meta: Llama 3 8B Instruct": 2,
+    "Phi-3 Medium 128K Instruct": 2,
+    "Phi-3 Mini 128K Instruct": 2,
+    "Mistral: Mistral 7B Instruct": 2,
+    "Meta: Llama 3.2 1B Instruct": 2,
+    "Meta: Llama 3.2 11B Vision Instruct": 2,
+    "Nous: Hermes 3 405B Instruct": 2,
+    "Meta: Llama 3.1 70B Instruct": 2,
+    "Meta: Llama 3.1 8B Instruct": 2,
+    "Meta: Llama 3.1 405B Instruct": 2,
+    "Qwen 2 7B Instruct": 2,
+    "Toppy M 7B": 1,
+    "Google: Gemma 2 9B": 1,
+    "Reflection 70B": 0,
+    "Mistral: Pixtral 12B": 0,
+    "Qwen2-VL 7B Instruct": 0,
 }
 #a reusable template! this allows insertions with reduced data ;3
 temp = ["", "", 0, "", 0, "", "", "", "", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, False, "", "", []]
